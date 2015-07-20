@@ -1,0 +1,21 @@
+{
+  "roles": {
+    "*": true
+  },
+  "name": "custom",
+  "flow": [
+      [
+          "operation",
+          [":transform", {"data": {"test_A": "data"}}],
+          "operationHandler",
+          [":transform", {"data": {"test_B": "data"}}],
+          "operationHandler2"
+      ]
+  ],
+  "module": {
+      "main": "public/test.js",
+      "client": {
+          "module": ["/test.js", "(W)/worker.js"]
+      }
+  }
+}
