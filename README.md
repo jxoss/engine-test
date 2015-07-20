@@ -1,4 +1,4 @@
-starter
+Engine test app
 =======
 
-A basic starter project
+App that tests the engine framework.
