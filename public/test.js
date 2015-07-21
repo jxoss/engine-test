@@ -1,173 +1,83 @@
-var flows = [];
+function combinator (items, multiply) {
+    
+    var result = [];
+    var combos = [];
+    for (var i = 0, _c; i < multiply; ++i) {
+        combos.push(items);
+        result = result.concat(allPossibleCases(combos));
+    }
+    
+    return result;
+}
+
+function allPossibleCases(arr) {
+  if (arr.length == 1) {
+    return arr[0];
+  } else {
+    var result = [];
+    var allCasesOfRest = allPossibleCases(arr.slice(1));  // recur with the rest of array
+    for (var i = 0; i < allCasesOfRest.length; i++) {
+      for (var j = 0; j < arr[0].length; j++) {
+        result.push(arr[0][j] + allCasesOfRest[i]);
+      }
+    }
+    return result;
+  }
+}
 
 exports.init = function () {
-
-    /*
-     * ":" -> Data handler
-     * "|" -> Stream handler
-     * ">" -> Stream handler with loop stream
-     */
-
-    for (var i = 0, flow; i < flows.length; i++) {
-        flow = flows[i];
+    
+    // generate all possible combinations
+    // - ":" -> Data handler
+    // - "|" -> Stream handler
+    // - ">" -> Broken stream handler
+    this.flows = combinator([":", "|", ">"], this._config.handlerCount || 1);
+    
+    // create test flow config for every combination
+    for (var i = 0, type, handler, flow; i < this.flows.length; ++i) {
+        type = this.flows[i];
+        flow = [type];
+        
+        for (var c = 0, cl = type.length; c < cl; ++c) {
+            
+            switch (type[c]) {
+              case ':':
+                handler = ':data';
+                break;
+              case '|':
+                handler = 'stream';
+                break;
+              case '>':
+                handler = 'broken';
+                break;
+              
+              default:
+                this.log('E', 'Invalid flow type "' + type + '"');
+            }
+            
+            flow.push([handler, {
+                id: i,
+                name: type
+            }]);
+        }
+        
+        this.flows[i] = flow;
+        
+        // listen to flow event
+        this.mind(flow);
     }
-
-    this.flows = {
-        one: [
-            [   // data handler call
-                ":",
-                [":data", {index: 1}]
-            ],
-            [   // stream handler call
-                "|",
-                ["stream", {index: 1}]
-            ],
-            [   // link handler call
-                ">",
-                ["link", {index: 1}]
-            ]
-        ],
-        two: [
-            [   // data -> data
-                "::",
-                [":data", {index: 1, next: ":"}],
-                [":data", {index: 2}]
-            ],
-            [   // data -> stream
-                ":|",
-                [":data", {index: 1, next: "|"}],
-                ["stream", {index: 2}]
-            ],
-            [   // data -> link
-                ":>",
-                [":data", {index: 1, next: ">"}],
-                ["link", {index: 2}]
-            ],
-            [   // stream -> stream
-                "||",
-                ["stream", {index: 1, next: "|"}],
-                ["stream", {index: 1}]
-            ],
-            [   // stream -> data
-                "|:",
-                ["stream", {index: 1, next: ":"}],
-                [":data", {index: 2}]
-            ],
-            [   // stream -> link
-                "|>",
-                ["stream", {index: 1, next: ">"}],
-                ["link", {index: 2}]
-            ],
-            [   // link -> link
-                ">>",
-                ["link", {index: 1, next: ">"}],
-                ["link", {index: 2}]
-            ],
-            [   // link -> data
-                ">:",
-                ["link", {index: 1, next: ":"}],
-                [":data", {index: 2}]
-            ],
-            [   // link -> stream
-                ">|",
-                ["link", {index: 1, next: "|"}],
-                ["stream", {index: 2}]
-            ]
-        ]
-    };
-
-    var i;
-    for (i = this.flows.one.length - 1; i >= 0; i--) {
-        this.mind(this.flows.one[i]);
-    }
-    for (i = this.flows.two.length - 1; i >= 0; i--) {
-        this.mind(this.flows.two[i]);
-    }
-
-    /*
-    var threeHandlers = [
-        [   // 
-            ":::"
-        ],
-        [   // 
-            "::|"
-        ],
-        [   // 
-            ":|:"
-        ],
-        [   // 
-            ":||"
-        ],
-        [   // 
-            "::>"
-        ],
-        [   // 
-            ":>:"
-        ],
-        [   // 
-            ":>>"
-        ],
-        [   // 
-            "|||"
-        ],
-        [   // 
-            "||:"
-        ],
-        [   // 
-            "|:|"
-        ],
-        [   // 
-            "|::"
-        ],
-        [   // 
-            "||>"
-        ],
-        [   // 
-            "|>|"
-        ],
-        [   // 
-            "|>>"
-        ],
-        [   // 
-            ">>>"
-        ],
-        [   // 
-            ">>:"
-        ],
-        [   // 
-            ">:>"
-        ],
-        [   // 
-            ">::"
-        ],
-        [   // 
-            ">>|"
-        ],
-        [   // 
-            ">|>"
-        ],
-        [   // 
-            ">||"
-        ]
-    ];
-    */
 };
 
-exports.test = {
-    flow: function (stream) {
+exports.test = function (stream) {
+    stream.data([this, function () {
 
-        stream.data([this, function () {
-
-            console.log('1. -> TEST FLOW STREAM WITH ONE HANDLER');
-            callFlows.call(this, this.flows.one);
-            console.log('2. -> TEST FLOW STREAM WITH TWO HANDLERS');
-            callFlows.call(this, this.flows.two);
-        }]);
-    }
+        console.log('1. -> TEST FLOW STREAM HANDLERS');
+        callFlows.call(this, this.flows);
+    }]);
 };
 
 function callFlows (flows) {
-    for (var i = flows.length - 1; i >= 0; i--) {
+    for (var i = 0, l = flows.length; i < l; ++i) {
 
           // emit event
           this.flow(flows[i][0]).write(
@@ -177,8 +87,8 @@ function callFlows (flows) {
 
               // write the event name to stream
               {
-                  event: flows[i][0],
-                  data: ''
+                  id: i,
+                  name: flows[i][0]
               }
           );
     }
@@ -213,7 +123,7 @@ exports.stream = function (stream, testConfig) {
     return stream;
 };
 
-exports.link = function (stream, testConfig) {
+exports.broken = function (stream, testConfig) {
 
     // checks
     // - if expected arguments are received
