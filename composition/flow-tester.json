@@ -5,7 +5,7 @@
   "name": "flow-tester",
   "client": {
       "config": {
-          "handlerCount": 2
+          "handlerCount": 3
       }
   },
   "flow": [
