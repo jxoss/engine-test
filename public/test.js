@@ -71,7 +71,7 @@ exports.init = function () {
 exports.test = function (stream) {
     stream.data([this, function () {
 
-        console.log('1. -> TEST FLOW STREAM HANDLERS');
+        console.log('TEST ' + this.flows.length + ' FLOW STREAM HANDLERS');
         callFlows.call(this, this.flows);
     }]);
 };
@@ -94,21 +94,35 @@ function callFlows (flows) {
     }
 }
 
-exports.data = function (err, data, stream, testConfig) {
+exports.data = function (err, data, stream, args) {
     
     // checks
     // - if expected arguments are received
+    if (!args) {
+        console.log('');
+    }
     // - if data object contains all expected data
+    if (!data) {
+        console.log('');
+    }
     // - function scope
     // - stream scope
     // - how many times the handler is called
     // - if method is called, timeout after a while
     // - call order
     
-    console.log(':DATA', data, testConfig);
+    //setTimeout(function() {
+    //    stream.write(err, data);
+    //}, 0);
+    
+    this.log('I', {
+        type: ':',
+        id: args.id,
+        name: args.name
+    }, 'successful');
 };
 
-exports.stream = function (stream, testConfig) {
+exports.stream = function (stream, args) {
 
     // checks
     // - if expected arguments are received
@@ -118,12 +132,12 @@ exports.stream = function (stream, testConfig) {
     // - if method is called, timeout after a while
     // - call order
 
-    stream.data([this, this.data], testConfig);
+    stream.data([this, this.data], args);
 
     return stream;
 };
 
-exports.broken = function (stream, testConfig) {
+exports.broken = function (stream, args) {
 
     // checks
     // - if expected arguments are received
@@ -134,7 +148,11 @@ exports.broken = function (stream, testConfig) {
     // - call order
 
     stream._ext = true;
-    stream.data([this, this.data], testConfig);
+    stream.data([this, function (err, data, stream, args) {
+        setTimeout(function() {
+            stream.write(err, data);
+        }, 0);
+    }], args);
 
     return stream;
 };
