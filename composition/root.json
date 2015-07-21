@@ -24,12 +24,12 @@
                 "on": "click",
                 "selector": "#test-flow",
                 "flow": [
-                    ["custom/test.flow"]
+                    ["flow-tester/test"]
                 ]
             },
             {
                 "on": "click",
-                "selector": "#test-instance",
+                "selector": "#test-reload",
                 "flow": [
                     [":reload"]
                 ]

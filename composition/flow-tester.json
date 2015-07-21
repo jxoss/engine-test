@@ -2,7 +2,12 @@
   "roles": {
     "*": true
   },
-  "name": "custom",
+  "name": "flow-tester",
+  "client": {
+      "config": {
+          "handlerCount": 2
+      }
+  },
   "flow": [
       [
           "operation",
@@ -15,7 +20,7 @@
   "module": {
       "main": "public/test.js",
       "client": {
-          "module": ["/test.js", "(W)/worker.js"]
+          "module": ["/test.js"]
       }
   }
 }
