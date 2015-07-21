@@ -26,47 +26,99 @@ function allPossibleCases(arr) {
 }
 
 exports.init = function () {
-    
+
     // generate all possible combinations
     // - ":" -> Data handler
     // - "|" -> Stream handler
     // - ">" -> Broken stream handler
     this.flows = combinator([":", "|", ">"], this._config.handlerCount || 1);
-    
+
     // create test flow config for every combination
     for (var i = 0, type, handler, flow; i < this.flows.length; ++i) {
         type = this.flows[i];
         flow = [type];
-        
+
         for (var c = 0, cl = type.length; c < cl; ++c) {
-            
+
             switch (type[c]) {
-              case ':':
-                handler = ':data';
-                break;
-              case '|':
-                handler = 'stream';
-                break;
-              case '>':
-                handler = 'broken';
-                break;
-              
-              default:
-                this.log('E', 'Invalid flow type "' + type + '"');
+
+                case ':':
+                    handler = ':data';
+                    break;
+                case '|':
+                    handler = 'stream';
+                    break;
+                case '>':
+                    handler = 'broken';
+                    break;
+
+                default:
+                    this.log('E', 'Invalid flow type "' + type + '"');
             }
             
+            // push handler into flow config
             flow.push([handler, {
+                
+                // handler arguments
                 id: i,
                 name: type
             }]);
         }
         
+        // push flow stream
         this.flows[i] = flow;
-        
+
         // listen to flow event
         this.mind(flow);
     }
 };
+
+/*
+function (stream_A) {
+  
+  var stream_B = this.flow([] | "event");
+  var stream_C = this.flow([] | "event");
+  
+  stream_C._ext = true;
+  
+  // 1. |i (C.w) o--> ?.d (note, that "_ext" streams only write to the output and NOT on the input)
+  stream_C.write();
+  
+  // 1. <--i (?.w) o--> C.d| (note, that "_ext" streams, WON'T emit the received data further to the ouput)
+  // 2. |i (C.w) o--> ?.d
+  stream_C.data(stream_C.write.bind(stream_C));
+  
+  // 1. <--i (?.w) o--> C.d|
+  // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
+  stream_C.data(stream_A.write.bind(stream_A));
+  
+  // 1. ?.d <--o FL.d <--i (A.w) o--> ?.d
+  stream_A.write(err, data);
+  
+  // 1. ?.d <--i (FL.w) o--> A.d o--> ?.d
+  // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
+  stream_A.data(stream_A.write.bind(stream_A));
+  
+  // 1. ?.d <--i (FL.w) o--> A.d o--> ?.d
+  // 2. ?.d <--i (B.w) o--> ?.d (note, that writing on B don't emit data on B itself, FL or A.)
+  stream_A.data(stream_B.write.bind(stream_B));
+  
+  // D
+  // 2. ?.d <--i (B.w) o--> ?.d
+  stream_B.write(err, data);
+  
+  // E
+  // 1. ?.d <--i (?.w) o--> B.d o--> ?.d
+  // 2. ?.d <--i (B.w) o--> ?.d
+  stream_B.data(stream_B.write.bind(stream_B));
+  
+  // F
+  // 1. ?.d <--i (?.w) o--> B.d o--> ?.d
+  // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
+  stream_B.data(stream_A.write.bind(stream_A));
+}
+*/
+
 
 exports.test = function (stream) {
     stream.data([this, function () {
@@ -78,7 +130,7 @@ exports.test = function (stream) {
 
 function callFlows (flows) {
     for (var i = 0, l = flows.length; i < l; ++i) {
-
+      
           // emit event
           this.flow(flows[i][0]).write(
 
