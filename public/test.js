@@ -73,51 +73,69 @@ exports.init = function () {
     }
 };
 
-/*
-function (stream_A) {
+function streamHandler (A) {
   
-  var stream_B = this.flow([] | "event");
-  var stream_C = this.flow([] | "event");
+  // IMPORTANT:
+  // - "FL" stands for this.flow([] || "event") stream.
+  // - "i" is input streams
+  // - "o" are output streams
   
-  stream_C._ext = true;
+  // Stream A setup:
+  // (A.w).o ==> (?.d)
+  //      .i --> (FL.d).o ==> (?.d)
+  //                   .i --> (?.d)
+  // (A.d).o ==> (?.d)
   
-  // 1. |i (C.w) o--> ?.d (note, that "_ext" streams only write to the output and NOT on the input)
-  stream_C.write();
+  // Stream B setup:
+  // (B.w).o ==> (?.d)
+  //      .i --> (?.d)
+  // (B.d).o ==> (?.d)
+  var B = this.flow([] || "event");
   
-  // 1. <--i (?.w) o--> C.d| (note, that "_ext" streams, WON'T emit the received data further to the ouput)
-  // 2. |i (C.w) o--> ?.d
-  stream_C.data(stream_C.write.bind(stream_C));
+  // Stream C setup (_ext):
+  // (C.w).o ==> (?.d)
+  // (C.d)
+  var C = this.flow([] || "event");
+  C._ext = true;
   
-  // 1. <--i (?.w) o--> C.d|
-  // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
-  stream_C.data(stream_A.write.bind(stream_A));
+  // TODO connect streams with emit and link
+  // TODO show how to connect streams in stream handler
   
   // 1. ?.d <--o FL.d <--i (A.w) o--> ?.d
-  stream_A.write(err, data);
+  A.write(err, data);
   
   // 1. ?.d <--i (FL.w) o--> A.d o--> ?.d
   // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
-  stream_A.data(stream_A.write.bind(stream_A));
+  A.data(A.write.bind(A));
   
   // 1. ?.d <--i (FL.w) o--> A.d o--> ?.d
   // 2. ?.d <--i (B.w) o--> ?.d (note, that writing on B don't emit data on B itself, FL or A.)
-  stream_A.data(stream_B.write.bind(stream_B));
+  A.data(stream_B.write.bind(stream_B));
   
-  // D
+  // Not connected streams
+  // ------------------------------------------------------------------------------
   // 2. ?.d <--i (B.w) o--> ?.d
-  stream_B.write(err, data);
+  B.write(err, data);
   
-  // E
   // 1. ?.d <--i (?.w) o--> B.d o--> ?.d
   // 2. ?.d <--i (B.w) o--> ?.d
-  stream_B.data(stream_B.write.bind(stream_B));
+  B.data(B.write.bind(B));
   
-  // F
   // 1. ?.d <--i (?.w) o--> B.d o--> ?.d
   // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
-  stream_B.data(stream_A.write.bind(stream_A));
+  B.data(A.write.bind(A));
+  
+  // 1. |i (C.w) o--> ?.d (note, that "_ext" streams only write to the output and NOT on the input)
+  C.write();
+  
+  // 1. <--i (?.w) o--> C.d| (note, that "_ext" streams, WON'T emit the received data further to the ouput)
+  // 2. |i (C.w) o--> ?.d
+  C.data(C.write.bind(C));
+  
+  // 1. <--i (?.w) o--> C.d|
+  // 2. ?.d <--o FL.d <--i (A.w) o--> ?.d
+  C.data(A.write.bind(A));
 }
-*/
 
 
 exports.test = function (stream) {
