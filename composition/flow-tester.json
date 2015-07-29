@@ -5,7 +5,7 @@
   "name": "flow-tester",
   "client": {
       "config": {
-          "handlerCount": 3
+          "handlerCount": 2
       }
   },
   "flow": [
@@ -20,7 +20,7 @@
   "module": {
       "main": "public/test.js",
       "client": {
-          "module": ["/test.js"]
+          "module": ["/test.js", "(W)/worker.js"]
       }
   }
 }
