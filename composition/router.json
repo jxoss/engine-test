@@ -1,0 +1,45 @@
+{
+  "client": {
+    "config": {
+      "routes": [
+        "URL_root",
+        {
+          "instance-only-stream": "URL_instance-only-stream",
+          "view-render-on-init": "URL_view-render-on-init",
+          "view-render-on-event": "URL_view-render-on-event",
+          "server-api-call": "URL_server-api-call"
+        }
+      ],
+      "customData": {
+        "clear": true
+      }
+    },
+    "flow": [
+      [
+        "URL_root",
+        [":layout/state", "startView"]
+      ],
+      [
+        "URL_instance-only-stream",
+        [":layout/state", "instanceOnlyStream"]
+      ],
+      [
+        "URL_view-render-on-init",
+        [":layout/state", "viewRenderOnInit"]
+      ],
+      [
+        "URL_view-render-on-event",
+        [":layout/state", "viewRenderOnEvent"]
+      ],
+      [
+        "URL_server-api-call",
+        [":layout/state", "serverApiCall"]
+      ]
+    ]
+  },
+  "roles": {
+    "*": true
+  },
+  "module": "engine-ruut",
+  "name": "router"
+}

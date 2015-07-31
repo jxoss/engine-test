@@ -1,0 +1,19 @@
+{
+  "roles": {
+    "*": true
+  },
+  "name": "test_view-render-on-event",
+  "client": {
+      "flow": [
+          [
+              "instance_client_event",
+              "client"
+          ]
+      ]
+  },
+  "module": {
+      "client": {
+          "module": ["/dummy.js"]
+      }
+  }
+}

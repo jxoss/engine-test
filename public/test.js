@@ -1,3 +1,8 @@
+
+console.log('REQUIRE "./worker":', require('./worker'));
+console.log('REQUIRE "/worker":', require('/worker'));
+console.log('REQUIRE "(W)/worker":', require('(W)/worker'));
+
 function combinator (items, multiply) {
     
     var result = [];

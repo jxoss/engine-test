@@ -1,0 +1,24 @@
+{
+  "roles": {
+    "*": true
+  },
+  "name": "test_instance-only-stream",
+  "module": {
+      "main": "public/dummy.js",
+      "flow": [
+          [
+              "serverModuleEvent",
+              "server"
+          ]
+      ],
+      "client": {
+          "module": ["/dummy.js"],
+          "flow": [
+              [
+                  "clientModuleEvent",
+                  ["link", "serverModuleEvent"]
+              ]
+          ]
+      }
+  }
+}
