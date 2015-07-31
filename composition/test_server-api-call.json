@@ -6,27 +6,32 @@
   "client": {
       "flow": [
           [
-              "instance_client_flow"
+              "serverResult"
           ]
       ]
   },
   "flow": [
       [
-          "instance_server_flow"
+          "serverEventSpecific",
+          [":transform", {}],
+          "serverMethod"
       ]
   ],
   "module": {
       "main": "public/test.js",
       "flow": [
           [
-              "module_server_flow"
+              "serverEvent",
+              "serverMethod"
           ]
       ],
       "client": {
           "module": ["/test.js"],
           "flow": [
               [
-                  "module_client_flow"
+                  "clientEvent",
+                  ["link", "serverMethod"],
+                  ["emit", "serverResult"]
               ]
           ]
       }

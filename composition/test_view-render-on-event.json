@@ -6,29 +6,14 @@
   "client": {
       "flow": [
           [
-              "instance_client_flow"
+              "instance_client_event",
+              "render"
           ]
       ]
   },
-  "flow": [
-      [
-          "instance_server_flow"
-      ]
-  ],
   "module": {
-      "main": "public/test.js",
-      "flow": [
-          [
-              "module_server_flow"
-          ]
-      ],
       "client": {
-          "module": ["/test.js"],
-          "flow": [
-              [
-                  "module_client_flow"
-              ]
-          ]
+          "module": ["/test.js"]
       }
   }
 }
