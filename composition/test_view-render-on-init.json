@@ -6,27 +6,27 @@
   "client": {
       "flow": [
           [
-              "instance_client_flow"
+              "instance_client_event"
           ]
       ]
   },
   "flow": [
       [
-          "instance_server_flow"
+          "instance_server_event"
       ]
   ],
   "module": {
-      "main": "public/test.js",
+      "main": "public/dummy.js",
       "flow": [
           [
-              "module_server_flow"
+              "module_server_event"
           ]
       ],
       "client": {
-          "module": ["/test.js"],
+          "module": ["/dummy.js"],
           "flow": [
               [
-                  "module_client_flow"
+                  "module_client_event"
               ]
           ]
       }

@@ -4,19 +4,19 @@
   },
   "name": "test_instance-only-stream",
   "module": {
-      "main": "public/test.js",
+      "main": "public/dummy.js",
       "flow": [
           [
-              "serverEvent",
-              "serverMethod"
+              "serverModuleEvent",
+              "server"
           ]
       ],
       "client": {
-          "module": ["/test.js"],
+          "module": ["/dummy.js"],
           "flow": [
               [
-                  "getStream",
-                  ["link", "serverEvent"]
+                  "clientModuleEvent",
+                  ["link", "serverModuleEvent"]
               ]
           ]
       }

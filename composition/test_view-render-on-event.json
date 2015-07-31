@@ -7,13 +7,13 @@
       "flow": [
           [
               "instance_client_event",
-              "render"
+              "client"
           ]
       ]
   },
   "module": {
       "client": {
-          "module": ["/test.js"]
+          "module": ["/dummy.js"]
       }
   }
 }

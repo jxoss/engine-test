@@ -14,23 +14,23 @@
       [
           "serverEventSpecific",
           [":transform", {}],
-          "serverMethod"
+          "server"
       ]
   ],
   "module": {
-      "main": "public/test.js",
+      "main": "public/dummy.js",
       "flow": [
           [
-              "serverEvent",
-              "serverMethod"
+              "serverModuleEvent",
+              "server"
           ]
       ],
       "client": {
-          "module": ["/test.js"],
+          "module": ["/dummy.js"],
           "flow": [
               [
                   "clientEvent",
-                  ["link", "serverMethod"],
+                  ["link", "serverModuleEvent"],
                   ["emit", "serverResult"]
               ]
           ]
