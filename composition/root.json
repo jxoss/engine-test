@@ -23,19 +23,25 @@
             {
                 "on": "click",
                 "selector": "#test-flow",
-                "flow": [
-                    ["flow-tester/test"]
-                ]
+                "event": "test-flow-ev"
             },
             {
                 "on": "click",
                 "selector": "#test-reload",
-                "flow": [
-                    [":reload"]
-                ]
+                "event": "test-reload"
             }
         ]
     },
+    "flow": [
+        [
+            "test-flow-ev",
+            ["flow-tester/test"]
+        ],
+        [
+            "test-reload",
+            [":reload"]
+        ]
+    ],
     "markup": [
       "/root.html"
     ],
