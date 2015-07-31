@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "view": "adioo/view.git"
+    "view": "adioo/view",
+    "engine-ruut": "jillix/engine-ruut"
   },
   "name": "engine-test",
   "version": "0.1.0",
