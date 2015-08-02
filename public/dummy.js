@@ -7,9 +7,6 @@ exports.data = function () {
 exports.error = function () {
     this.log('I', 'Dummy error handler.');
 };
-exports.client = function () {
+exports.stream = function () {
     this.log('I', 'Dummy client handler.');
-};
-exports.server = function () {
-    this.log('I', 'Dummy server handler.');
 };
