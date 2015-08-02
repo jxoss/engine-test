@@ -22,6 +22,7 @@
       ]
   },
   "module": {
+      "main": "public/dummy.js",
       "client": {
           "module": ["/dummy.js"]
       }
