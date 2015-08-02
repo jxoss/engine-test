@@ -1,0 +1,19 @@
+{
+  "roles": {
+    "*": true
+  },
+  "name": "E-ioE-ioS",
+  "client": {
+      "flow": [
+          [
+              "E-ioE-ioS",
+              "stream"
+          ]
+      ]
+  },
+  "module": {
+      "client": {
+          "module": ["/dummy.js"]
+      }
+  }
+}

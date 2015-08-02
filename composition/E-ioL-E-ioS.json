@@ -2,12 +2,12 @@
   "roles": {
     "*": true
   },
-  "name": "test_view-render-on-event",
+  "name": "E-ioL-E-ioS",
   "client": {
       "flow": [
           [
-              "instance_client_event",
-              "client"
+              "E-ioL-E-ioS",
+              "stream"
           ]
       ]
   },
