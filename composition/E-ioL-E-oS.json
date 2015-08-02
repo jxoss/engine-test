@@ -3,11 +3,17 @@
     "*": true
   },
   "name": "E-ioL-E-oS",
+  "flow": [
+      [
+          "E-oS",
+          ">stream"
+      ]
+  ],
   "client": {
       "flow": [
           [
               "E-ioL-E-oS",
-              "stream"
+              ["link", "E-oS"]
           ]
       ]
   },
