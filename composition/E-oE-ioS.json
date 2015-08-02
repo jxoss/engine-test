@@ -7,6 +7,10 @@
       "flow": [
           [
               "E-oE-ioS",
+              [">emit", "ioS"]
+          ],
+          [
+              "ioS",
               "stream"
           ]
       ]
