@@ -7,6 +7,8 @@
       "flow": [
           [
               "E-oS",
+              "!error",
+              ":data",
               ">stream"
           ]
       ]

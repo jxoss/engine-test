@@ -7,6 +7,8 @@
       "flow": [
           [
               "E-IioE-ioS",
+              "!error",
+              ":data",
               ["E-ioS/emit", "E-ioS"]
           ]
       ]

@@ -6,6 +6,8 @@
   "flow": [
       [
           "E-ioS",
+          "!error",
+          ":data",
           "stream"
       ]
   ],
@@ -13,6 +15,8 @@
       "flow": [
           [
               "E-oL-E-ioS",
+              "!error",
+              ":data",
               [">link", "E-ioS"]
           ]
       ]

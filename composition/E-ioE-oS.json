@@ -7,10 +7,14 @@
       "flow": [
           [
               "E-ioE-oS",
+              "!error",
+              ":data",
               ["emit", "oS"]
           ],
           [
               "oS",
+              "!error",
+              ":data",
               ">stream"
           ]
       ]
