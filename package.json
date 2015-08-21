@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "engine": "jillix/engine",
     "view": "adioo/view",
     "engine-ruut": "jillix/engine-ruut"
   },
@@ -24,7 +25,16 @@
   "homepage": "https://github.com/jillix/engine-test",
   "main": "index.js",
   "scripts": {
+    "start": "engine .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "entrypoints": {
+    "private": {
+      "*": "router"
+    },
+    "public": {
+      "*": "router"
+    }
+  }
 }
