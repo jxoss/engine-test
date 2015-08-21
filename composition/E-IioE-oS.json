@@ -9,7 +9,7 @@
               "E-IioE-oS",
               "!error",
               ":data",
-              ["E-oS/emit", "E-oS"]
+              ["E-oS/flow", "E-oS"]
           ]
       ]
   },

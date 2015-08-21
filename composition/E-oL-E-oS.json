@@ -17,7 +17,7 @@
               "E-oL-E-oS",
               "!error",
               ":data",
-              [">link", "E-oS"]
+              [">flow", "@E-oS"]
           ]
       ]
   },
