@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
+    "node-inspector": "0.12.2",
     "view": "adioo/view",
     "engine-ruut": "jillix/engine-ruut"
   },
@@ -26,7 +27,7 @@
   "main": "index.js",
   "scripts": {
     "start": "engine .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "./node_modules/node-inspector/bin/node-debug.js --web-host $IP --web-port 8001 --preload=false ./node_modules/engine/engine ."
   },
   "license": "MIT",
   "entrypoints": {
