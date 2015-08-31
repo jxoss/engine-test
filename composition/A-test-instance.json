@@ -1,0 +1,28 @@
+{
+  "roles": {
+    "*": true
+  },
+  "name": "A-test-instance",
+  "client": {
+      "flow": [
+          [
+              "event1",
+              "!error",
+              ":data",
+              ["E-ioS/flow", "some-event"]
+          ],
+          [
+              "event1",
+              "!error",
+              ":data",
+              ["E-ioS/flow", "another-event"]
+          ],
+          [
+              "event2",
+              "!error",
+              ":data",
+              ["E-ioS/flow", "yet-another-event"]
+          ]
+      ]
+  }
+}
