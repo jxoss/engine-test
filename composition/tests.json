@@ -1,0 +1,36 @@
+{
+  "client": {
+    "config": {
+        "title": "Engine Tests",
+        "templates": {
+            "def": {
+                "to": ".section",
+                "html": "/tests.html",
+                "render": true
+            },
+            "item": {
+                "to": ".section tbody",
+                "html": "/test_item.html"
+            }
+        },
+        "defaultTemplate": "def"
+    },
+    "flow": [
+        [
+            "show",
+            [">api/flow", "@getTests"],
+            [":render", "item"],
+            [":layout/state", "content"]
+        ]
+    ],
+    "markup": [
+      "/tests.html",
+      "/test_item.html"
+    ]
+  },
+  "roles": {
+    "*": true
+  },
+  "name": "tests",
+  "module": "view"
+}

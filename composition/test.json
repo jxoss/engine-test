@@ -1,0 +1,29 @@
+{
+  "client": {
+    "config": {
+        "title": "Engine Tests",
+        "templates": {
+            "def": {
+                "to": ".section",
+                "html": "/test.html"
+            }
+        },
+        "defaultTemplate": "def"
+    },
+    "flow": [
+        [
+            "show",
+            [":ALTR", {"set": {"name": "_path.1"}}],
+            ":api/getTest"
+        ]
+    ],
+    "markup": [
+      "/test.html"
+    ]
+  },
+  "roles": {
+    "*": true
+  },
+  "name": "test",
+  "module": "view"
+}

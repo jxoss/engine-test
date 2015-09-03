@@ -1,0 +1,28 @@
+{
+  "client": {
+    "config": {
+        "title": "Create test",
+        "templates": {
+            "def": {
+                "to": ".section",
+                "html": "/new.html"
+            }
+        },
+        "defaultTemplate": "def"
+    },
+    "flow": [
+        [
+            "show",
+            "render"
+        ]
+    ],
+    "markup": [
+      "/new.html"
+    ]
+  },
+  "roles": {
+    "*": true
+  },
+  "name": "new",
+  "module": "view"
+}

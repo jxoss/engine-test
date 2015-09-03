@@ -1,0 +1,20 @@
+{
+  "roles": {
+    "*": true
+  },
+  "module": {
+    "main": "public/api.js",
+    "flow": [
+      [
+          "getTests",
+          ":getTests"
+      ]
+    ],
+    "client": {
+      "module": [
+        "/api.js"
+      ]
+    }
+  },
+  "name": "api"
+}
