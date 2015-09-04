@@ -18,7 +18,7 @@
     "flow": [
         [
             "show",
-            [">api/flow", "@getTests"],
+            [">flow", "@api/getTests"],
             [":render", "item"],
             [":layout/state", "content"]
         ]

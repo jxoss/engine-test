@@ -9,12 +9,7 @@
           "getTests",
           ":getTests"
       ]
-    ],
-    "client": {
-      "module": [
-        "/api.js"
-      ]
-    }
+    ]
   },
   "name": "api"
 }
