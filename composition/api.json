@@ -8,6 +8,10 @@
       [
           "getTests",
           ":getTests"
+      ],
+      [
+          "getTest",
+          ":getTest"
       ]
     ]
   },

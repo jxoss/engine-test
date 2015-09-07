@@ -13,7 +13,9 @@
     "flow": [
         [
             "show",
-            "render"
+            [":ALTR", {"data": {"clear": true}}],
+            ":render",
+            [":layout/state", "content"]
         ]
     ],
     "markup": [

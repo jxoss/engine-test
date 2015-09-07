@@ -13,7 +13,14 @@
                 "html": "/test_item.html"
             }
         },
-        "defaultTemplate": "def"
+        "defaultTemplate": "def",
+        "domEvents": [
+            {
+                "on": "click",
+                "selector": "#createTest",
+                "flow": "createTestBtn"
+            }
+        ]
     },
     "flow": [
         [
@@ -21,6 +28,10 @@
             [">flow", "@api/getTests"],
             [":render", "item"],
             [":layout/state", "content"]
+        ],
+        [
+            "createTestBtn",
+            [":router/route", "/new"]
         ]
     ],
     "markup": [

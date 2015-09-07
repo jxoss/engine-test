@@ -3,7 +3,7 @@
     "config": {
       "routes": ["tests", {
           "new": "new",
-          "test": "test"
+          ":test": "test"
       }]
     },
     "flow": [

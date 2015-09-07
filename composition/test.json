@@ -1,7 +1,7 @@
 {
   "client": {
     "config": {
-        "title": "Engine Tests",
+        "title": "Engine Test detail",
         "templates": {
             "def": {
                 "to": ".section",
@@ -13,8 +13,10 @@
     "flow": [
         [
             "show",
-            [":ALTR", {"set": {"name": "_path.1"}}],
-            ":api/getTest"
+            [":ALTR", {"set": {"name": "_path.0"}}],
+            [">flow", "@api/getTest"],
+            ":render",
+            [":layout/state", "content"]
         ]
     ],
     "markup": [
