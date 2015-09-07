@@ -8,15 +8,28 @@
                 "html": "/test.html"
             }
         },
-        "defaultTemplate": "def"
+        "defaultTemplate": "def",
+        "domEvents": [
+            {
+                "on": "click",
+                "selector": "#detailCancel",
+                "flow": "detailCancelBtn"
+            }
+        ]
     },
     "flow": [
         [
             "show",
+            [":layout/state", "loader"],
             [":ALTR", {"set": {"name": "_path.0"}}],
             [">flow", "@api/getTest"],
+            [":ALTR", {"data": {"clear": true}}],
             ":render",
             [":layout/state", "content"]
+        ],
+        [
+            "detailCancelBtn",
+            [":router/route", "/"]
         ]
     ],
     "markup": [

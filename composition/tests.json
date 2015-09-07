@@ -5,8 +5,7 @@
         "templates": {
             "def": {
                 "to": ".section",
-                "html": "/tests.html",
-                "render": true
+                "html": "/tests.html"
             },
             "item": {
                 "to": ".section tbody",
@@ -25,6 +24,9 @@
     "flow": [
         [
             "show",
+            [":layout/state", "loader"],
+            [":ALTR", {"data": {"clear": true}}],
+            [":render", "def"],
             [">flow", "@api/getTests"],
             [":render", "item"],
             [":layout/state", "content"]

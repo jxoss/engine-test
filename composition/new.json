@@ -8,14 +8,26 @@
                 "html": "/new.html"
             }
         },
-        "defaultTemplate": "def"
+        "defaultTemplate": "def",
+        "domEvents": [
+            {
+                "on": "click",
+                "selector": "#newCancel",
+                "flow": "newCancelBtn"
+            }
+        ]
     },
     "flow": [
         [
             "show",
+            [":layout/state", "loader"],
             [":ALTR", {"data": {"clear": true}}],
             ":render",
             [":layout/state", "content"]
+        ],
+        [
+            "newCancelBtn",
+            [":router/route", "/"]
         ]
     ],
     "markup": [

@@ -2,6 +2,9 @@
   <h1>
     {name}
     <span class="pull-right">
+      <button id="detailCancel" type="button" class="btn btn-default navbar-btn">
+        Cancel <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
       <button type="button" class="btn btn-primary navbar-btn">
         Run <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
       </button>
@@ -12,7 +15,9 @@
   </h1>
 </div>
 <h4>Flow config</h4>
-<code>{flow}</code>
+<pre>
+<code style="white-space:pre;word-break:normal;word-wrap:normal;">{flow}</code>
+</pre>
 <hr>
 <h4>Graph</h4>
 <div class="flow-graph">

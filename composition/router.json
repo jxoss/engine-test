@@ -9,17 +9,14 @@
     "flow": [
       [
         "tests",
-        [":layout/state", "loader"],
         [">tests/flow", "show"]
       ],
       [
         "test",
-        [":layout/state", "loader"],
         [">test/flow", "show"]
       ],
       [
         "new",
-        [":layout/state", "loader"],
         [">new/flow", "show"]
       ]
     ]
