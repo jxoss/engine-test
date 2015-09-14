@@ -1,39 +1,78 @@
 {
   "client": {
     "config": {
-        "title": "Engine Tests",
         "templates": {
-            "def": {
+            "layout": {
                 "to": ".section",
-                "html": "/tests.html"
+                "html": "/tests.html",
+                "clear": true,
+                "title": "Engine Tests",
+                "events": [
+                    {
+                        "on": "click",
+                        "selector": "#createTest",
+                        "flow": "createTestBtn"
+                    }
+                ]
             },
-            "item": {
+            "list": {
                 "to": ".section tbody",
-                "html": "/test_item.html"
+                "html": "/test_item.html",
+                "events": [
+                    {
+                        "on": "click",
+                        "selector": "tbody tr",
+                        "flow": "testItemDetail"
+                    }
+                ]
             }
         },
-        "defaultTemplate": "def",
-        "domEvents": [
-            {
-                "on": "click",
-                "selector": "#createTest",
-                "flow": "createTestBtn"
+        "states": {
+            "": {
+                "sel": "#new",
+                "element": "myElement",
+                "states": ["stateB"],
+                "rm": ["className"],
+                "add": ["className"],
+                "toggle": ["className"]
             }
-        ]
+        }
     },
     "flow": [
         [
             "show",
-            [":layout/state", "loader"],
-            [":ALTR", {"data": {"clear": true}}],
-            [":render", "def"],
+            [":layout/state", {
+                "name" :"loader"
+            }],
+            [":render", {
+                "tmpl": "layout"
+            }],
             [">flow", "@api/getTests"],
-            [":render", "item"],
+
+            [
+                ":render",
+                [
+                    "optionHandler", {
+                        "template": "{viewType}"
+                    }
+                ]
+            ],
+
+            [":BUFR", {
+                "signal": null,
+                "timeout": 1000,
+                "message": "Sequenze timeout."
+            }],
             [":layout/state", "content"]
         ],
         [
             "createTestBtn",
             [":router/route", "/new"]
+        ],
+        [
+            "testItemDetail",
+            [":ALTR", {"data": {"url": "/trycken"}}],
+            [":router/route"]
         ]
     ],
     "markup": [
