@@ -49,13 +49,13 @@
             }],
             [">flow", "@api/getTests"],
 
+
             [
                 ":render",
-                [
-                    "optionHandler", {
-                        "template": "{viewType}"
-                    }
-                ]
+                {
+                    "template": "my_new_temp_{viewType}"
+                },
+                "myOptionHandler"
             ],
 
             [":BUFR", {
@@ -63,6 +63,7 @@
                 "timeout": 1000,
                 "message": "Sequenze timeout."
             }],
+
             [":layout/state", "content"]
         ],
         [
