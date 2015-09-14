@@ -27,19 +27,22 @@ var tests = [
     {index: 26, name: 'Z', duration: 0.003, status: 'Passed', vis_state: 'success', date: '3/3/13'}
 ];
 
-exports.getTests = function (data, stream) {
+exports.getTests = function (stream, options, data) {
 
     // implement caching, cause the method can be called directly from a route
     var index = 0;
     var ivid = setInterval(function() {
         stream.write(null, tests[index]);
         if (++index === tests.length) {
+
+            // signal sequenze end
+            stream.write(null, null);
             return clearInterval(ivid);
         }
     }, 25);
 };
 
-exports.getTest = function (data, stream) {
+exports.getTest = function (stream, options, data) {
 
     stream.write(null, {
         name: data.name,
@@ -52,14 +55,14 @@ exports.getTest = function (data, stream) {
     });
 };
 
-exports.saveTest = function (data, stream) {
+exports.saveTest = function (stream, options, data) {
 
 };
 
-exports.runTests = function (data, stream) {
+exports.runTests = function (stream, options, data) {
 
 };
 
-exports.runTest = function (data, stream) {
+exports.runTest = function (stream, options, data) {
 
 };
