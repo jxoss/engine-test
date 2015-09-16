@@ -47,7 +47,7 @@
             [":render", {
                 "tmpl": "layout"
             }],
-            [">flow", "@api/getTests"],
+            [">flow", {"emit": "@api/getTests"}],
 
 
             [

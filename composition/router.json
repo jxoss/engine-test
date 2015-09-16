@@ -9,15 +9,15 @@
     "flow": [
       [
         "tests",
-        [">tests/flow", "show"]
+        [">tests/flow", {"emit": "show"}]
       ],
       [
         "test",
-        [">test/flow", "show"]
+        [">test/flow", {"emit": "show"}]
       ],
       [
         "new",
-        [">new/flow", "show"]
+        [">new/flow", {"emit": "show"}]
       ]
     ]
   },

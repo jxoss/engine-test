@@ -22,7 +22,7 @@
             "show",
             [":layout/state", "loader"],
             [":ALTR", {"set": {"name": "_path.0"}}],
-            [">flow", "@api/getTest"],
+            [">flow", {"emit": "@api/getTest"}],
             [":ALTR", {"data": {"clear": true}}],
             ":render",
             [":layout/state", "content"]
