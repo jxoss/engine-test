@@ -19,7 +19,7 @@
     "url": "https://github.com/jillix/engine-test.git"
   },
   "engine": {
-    "node": ">=0.12"
+    "node": ">=4.2"
   },
   "bugs": {
     "url": "https://github.com/jillix/engine-test/issues"
