@@ -20,10 +20,10 @@
     "flow": [
         [
             "show",
-            [":layout/state", "loader"],
+            [":layout/state", {"name": "loader"}],
             [":ALTR", {"data": {"clear": true}}],
             ":render",
-            [":layout/state", "content"]
+            [":layout/state", {"name": "content"}]
         ],
         [
             "newCancelBtn",

@@ -20,12 +20,12 @@
     "flow": [
         [
             "show",
-            [":layout/state", "loader"],
+            [":layout/state", {"name": "loader"}],
             [":ALTR", {"set": {"name": "_path.0"}}],
             [">flow", {"emit": "@api/getTest"}],
             [":ALTR", {"data": {"clear": true}}],
             ":render",
-            [":layout/state", "content"]
+            [":layout/state", {"name": "content"}]
         ],
         [
             "detailCancelBtn",

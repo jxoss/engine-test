@@ -49,13 +49,11 @@
             }],
             [">flow", {"emit": "@api/getTests"}],
 
-
             [
                 ":render",
                 {
                     "template": "my_new_temp_{viewType}"
-                },
-                "myOptionHandler"
+                }
             ],
 
             [":BUFR", {
