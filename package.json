@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
-    "node-inspector": "0.12.2",
+    "node-inspector": "0.12.3",
     "jasmine": "2.3.2",
     "view": "adioo/view",
     "engine-ruut": "jillix/engine-ruut"
