@@ -29,10 +29,10 @@
   "license": "MIT",
   "entrypoints": {
     "private": {
-      "*": "router"
+      "*": "layout"
     },
     "public": {
-      "*": "router"
+      "*": "layout"
     }
   }
 }
