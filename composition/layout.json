@@ -1,15 +1,27 @@
 {
-  "client": {
+    "flow": {
+        "ready": [
+            [
+                [":render", {"tmpl": "layout"}],
+                [":tests/render", {"tmpl": "layout"}]
+            ]
+        ]
+    },
     "config": {
         "title": "Engine Test",
         "templates": {
             "layout": {
                 "to": "body",
-                "html": "/layout.html",
-                "render": true
+                "html": "/layout.html"
             }
         },
-        "defaultTemplate": "layout",
+        "domEvents": [
+            {
+                "on": "click",
+                "selector": "#my_clickable_1",
+                "flow": "getTests"
+            }
+        ],
         "states": {
             "content": [
                 {
@@ -44,11 +56,10 @@
       "/bootstrap/css/bootstrap.min.css",
       "/bootstrap/css/bootstrap-theme.min.css",
       "/style.css"
-    ]
-  },
-  "roles": {
-    "*": true
-  },
-  "name": "layout",
-  "module": "view"
+    ],
+    "roles": {
+        "*": true
+    },
+    "name": "layout",
+    "module": "view"
 }

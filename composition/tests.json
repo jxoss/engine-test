@@ -1,5 +1,4 @@
 {
-  "client": {
     "config": {
         "templates": {
             "layout": {
@@ -28,7 +27,7 @@
             }
         },
         "states": {
-            "": {
+            "new": {
                 "sel": "#new",
                 "element": "myElement",
                 "states": ["stateB"],
@@ -38,9 +37,8 @@
             }
         }
     },
-    "flow": [
-        [
-            "show",
+    "flow": {
+        "show": [
             [":layout/state", {
                 "name" :"loader"
             }],
@@ -56,29 +54,20 @@
                 }
             ],
 
-            [":BUFR", {
-                "signal": null,
-                "timeout": 1000,
-                "message": "Sequenze timeout."
-            }],
-
             [":layout/state", "content"]
         ],
-        [
-            "createTestBtn",
+        "createTestBtn": [
             [":router/route", "/new"]
         ],
-        [
-            "testItemDetail",
+        "testItemDetail": [
             [":ALTR", {"data": {"url": "/trycken"}}],
             [":router/route"]
         ]
-    ],
+    },
     "markup": [
       "/tests.html",
       "/test_item.html"
-    ]
-  },
+    ],
   "roles": {
     "*": true
   },

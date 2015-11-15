@@ -3,17 +3,11 @@
     "*": true
   },
   "module": {
-    "main": "public/api.js",
-    "flow": [
-      [
-          "getTests",
-          ":getTests"
-      ],
-      [
-          "getTest",
-          ":getTest"
-      ]
-    ]
+    "main": "/api.js"
+  },
+  "flow": {
+    "getTests": [":getTests"],
+    "getTest": [":getTest"]
   },
   "name": "api"
 }
