@@ -3,7 +3,9 @@
         "ready": [
             [
                 [":render", {"tmpl": "layout"}],
-                [":tests/render", {"tmpl": "layout"}]
+                [":tests/render", {"tmpl": "layout"}],
+                ">/api/getTests",
+                [":tests/render", {"tmpl": "list"}]
             ]
         ]
     },
