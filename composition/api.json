@@ -6,8 +6,8 @@
     "main": "/api.js"
   },
   "flow": {
-    "getTests": [":getTests"],
-    "getTest": [":getTest"]
+    "getTests": [[":getTests"]],
+    "getTest": [[":getTest"]]
   },
   "name": "api"
 }
