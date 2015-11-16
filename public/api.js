@@ -27,24 +27,24 @@ var tests = [
     {index: 26, name: 'Z', duration: 0.003, status: 'Passed', vis_state: 'success', date: '3/3/13'}
 ];
 
-exports.getTests = function (stream, options, data) {
+exports.getTests = function (next, options, data) {
 
     // implement caching, cause the method can be called directly from a route
     var index = 0;
     var ivid = setInterval(function() {
-        stream.write(null, tests[index]);
+        next(null, JSON.stringify(tests[index]));
         if (++index === tests.length) {
 
             // signal sequenze end
-            stream.write(null, null);
+            next(null);
             return clearInterval(ivid);
         }
     }, 25);
 };
 
-exports.getTest = function (stream, options, data) {
+exports.getTest = function (next, options, data) {
 
-    stream.write(null, {
+    next(null, {
         name: data.name,
         flow: [
             [
