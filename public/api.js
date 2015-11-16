@@ -32,11 +32,11 @@ exports.getTests = function (next, options, data) {
     // implement caching, cause the method can be called directly from a route
     var index = 0;
     var ivid = setInterval(function() {
-        next(null, JSON.stringify(tests[index]));
+        next(tests[index], true);
         if (++index === tests.length) {
 
             // signal sequenze end
-            next(null);
+            next();
             return clearInterval(ivid);
         }
     }, 25);
