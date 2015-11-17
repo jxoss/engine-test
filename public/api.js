@@ -28,7 +28,7 @@ var tests = [
 ];
 
 exports.getTests = function (next, options, data) {
-
+return next(null, tests);
     // implement caching, cause the method can be called directly from a route
     var index = 0;
     var ivid = setInterval(function() {

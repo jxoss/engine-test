@@ -4,7 +4,7 @@
             [
                 [":render", {"tmpl": "layout"}],
                 [":tests/render", {"tmpl": "layout"}],
-                [">>getTests", {"to": "api", "net": "ws", "om": true}],
+                [">>getTests", {"to": "api", "net": "http", "om": true}],
                 [":tests/render", {"tmpl": "list"}]
             ]
         ]
