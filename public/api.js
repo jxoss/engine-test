@@ -27,7 +27,7 @@ var tests = [
     {index: 26, name: 'Z', duration: 0.003, status: 'Passed', vis_state: 'success', date: '3/3/13'}
 ];
 
-exports.getTests = function (next, options, data) {
+exports.getTests = function (options, data, next) {
 return next(null, tests);
     // implement caching, cause the method can be called directly from a route
     var index = 0;
@@ -42,7 +42,7 @@ return next(null, tests);
     }, 25);
 };
 
-exports.getTest = function (next, options, data) {
+exports.getTest = function (options, data, next) {
 
     next(null, {
         name: data.name,
