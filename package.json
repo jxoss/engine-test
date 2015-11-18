@@ -1,10 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
-    "node-inspector": "0.12.3",
-    "jasmine": "2.3.2",
-    "view": "adioo/view",
-    "engine-ruut": "jillix/engine-ruut"
+    "view": "adioo/view"
   },
   "name": "engine-test",
   "version": "0.1.0",
@@ -19,13 +16,12 @@
     "url": "https://github.com/jillix/engine-test.git"
   },
   "engine": {
-    "node": ">=4.2"
+    "node": ">=5"
   },
   "bugs": {
     "url": "https://github.com/jillix/engine-test/issues"
   },
   "homepage": "https://github.com/jillix/engine-test",
-  "main": "index.js",
   "license": "MIT",
   "entrypoints": {
     "private": {
