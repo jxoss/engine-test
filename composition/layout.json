@@ -1,101 +1,138 @@
 {
   "client": {
     "config": {
-        "title": "Engine Test",
-        "templates": {
-            "layout": {
-                "to": "body",
-                "html": "/layout.html",
-                "render": true
-            }
-        },
-        "defaultTemplate": "layout",
-        "states": {
-            "hideAll": [
-                {
-                    "sel": ".section",
-                    "template": "layout",
-                    "add": ["hide"]
-                }
-            ],
-            "startView": [
-                {
-                    "states": ["hideAll"],
-                    "sel": ".startView",
-                    "template": "layout",
-                    "rm": ["hide"]
-                }
-            ],
-            "instanceOnlyStream": [
-                {
-                    "states": ["hideAll"],
-                    "sel": ".instanceOnlyStream",
-                    "template": "layout",
-                    "rm": ["hide"]
-                }
-            ],
-            "viewRenderOnInit": [
-                {
-                    "states": ["hideAll"],
-                    "sel": ".viewRenderOnInit",
-                    "template": "layout",
-                    "rm": ["hide"]
-                }
-            ],
-            "viewRenderOnEvent": [
-                {
-                    "states": ["hideAll"],
-                    "sel": ".viewRenderOnEvent",
-                    "template": "layout",
-                    "rm": ["hide"]
-                }
-            ],
-            "serverApiCall": [
-                {
-                    "states": ["hideAll"],
-                    "sel": ".serverApiCall",
-                    "template": "layout",
-                    "rm": ["hide"]
-                }
+      "title": "Engine Testssss",
+      "templates": {
+        "layout": {
+          "to": "body",
+          "html": "/layout.html",
+          "render": true
+        }
+      },
+      "defaultTemplate": "layout",
+      "states": {
+        "hideAll": [
+          {
+            "sel": ".section",
+            "template": "layout",
+            "add": [
+              "hide"
             ]
-        },
-        "flow": [
-            {
-                "on": "click",
-                "selector": ".nav-start-view",
-                "flow": [
-                    [":router/route", "/"]
-                ]
-            },
-            {
-                "on": "click",
-                "selector": ".nav-instance-only-stream",
-                "flow": [
-                    [":router/route", "/instance-only-stream"]
-                ]
-            },
-            {
-                "on": "click",
-                "selector": ".nav-view-render-on-init",
-                "flow": [
-                    [":router/route", "/view-render-on-init"]
-                ]
-            },
-            {
-                "on": "click",
-                "selector": ".nav-view-render-on-event",
-                "flow": [
-                    [":router/route", "/view-render-on-event"]
-                ]
-            },
-            {
-                "on": "click",
-                "selector": ".nav-server-api-call",
-                "flow": [
-                    [":router/route", "server-api-call"]
-                ]
-            }
+          }
+        ],
+        "startView": [
+          {
+            "states": [
+              "hideAll"
+            ],
+            "sel": ".startView",
+            "template": "layout",
+            "rm": [
+              "hide"
+            ]
+          }
+        ],
+        "instanceOnlyStream": [
+          {
+            "states": [
+              "hideAll"
+            ],
+            "sel": ".instanceOnlyStream",
+            "template": "layout",
+            "rm": [
+              "hide"
+            ]
+          }
+        ],
+        "viewRenderOnInit": [
+          {
+            "states": [
+              "hideAll"
+            ],
+            "sel": ".viewRenderOnInit",
+            "template": "layout",
+            "rm": [
+              "hide"
+            ]
+          }
+        ],
+        "viewRenderOnEvent": [
+          {
+            "states": [
+              "hideAll"
+            ],
+            "sel": ".viewRenderOnEvent",
+            "template": "layout",
+            "rm": [
+              "hide"
+            ]
+          }
+        ],
+        "serverApiCall": [
+          {
+            "states": [
+              "hideAll"
+            ],
+            "sel": ".serverApiCall",
+            "template": "layout",
+            "rm": [
+              "hide"
+            ]
+          }
         ]
+      },
+      "flow": [
+        {
+          "on": "click",
+          "selector": ".nav-start-view",
+          "flow": [
+            [
+              ":router/route",
+              "/"
+            ]
+          ]
+        },
+        {
+          "on": "click",
+          "selector": ".nav-instance-only-stream",
+          "flow": [
+            [
+              ":router/route",
+              "/instance-only-stream"
+            ]
+          ]
+        },
+        {
+          "on": "click",
+          "selector": ".nav-view-render-on-init",
+          "flow": [
+            [
+              ":router/route",
+              "/view-render-on-init"
+            ]
+          ]
+        },
+        {
+          "on": "click",
+          "selector": ".nav-view-render-on-event",
+          "flow": [
+            [
+              ":router/route",
+              "/view-render-on-event"
+            ]
+          ]
+        },
+        {
+          "on": "click",
+          "selector": ".nav-server-api-call",
+          "flow": [
+            [
+              ":router/route",
+              "server-api-call"
+            ]
+          ]
+        }
+      ]
     },
     "markup": [
       "/layout.html"
@@ -104,7 +141,8 @@
       "/bootstrap/css/bootstrap.min.css",
       "/bootstrap/css/bootstrap-theme.min.css",
       "/style.css"
-    ]
+    ],
+    "flow": []
   },
   "roles": {
     "*": true
