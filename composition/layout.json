@@ -1,13 +1,26 @@
 {
     "flow": {
-        "ready": [
-            [
+        "ready": {
+            "d": [
                 [":render", {"tmpl": "layout"}],
                 [":tests/render", {"tmpl": "layout"}],
                 [">>getTests", {"to": "api", "net": "ws"}],
+                [".state", {"name": "content", "tmpl": "layout"}],
                 [":tests/render", {"tmpl": "list"}]
+            ],
+            "e": "endEvent",
+            "r": "errEvent"
+        },
+        "endEvent": {
+            "d": [
+                [">>test", {"to": "client_api"}]
             ]
-        ]
+        },
+        "errEvent": {
+            "d": [
+                [":state", {"name": "ERROR"}]
+            ]
+        }
     },
     "config": {
         "title": "Engine Test",

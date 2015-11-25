@@ -28,30 +28,41 @@ var tests = [
 ];
 
 exports.getTests = function (options, data, next) {
-return next(null, tests);
+
     // implement caching, cause the method can be called directly from a route
     var index = 0;
+    var errHappend;
     var ivid = setInterval(function() {
-        next(tests[index], true);
+
+        if (errHappend) {
+            return;
+        }
+
+        if (index === -17) {
+            errHappend = true;
+            next(new Error('Wo isch de Ruedi?'));
+        } else {
+            next(tests[index], true);
+        }
+
         if (++index === tests.length) {
 
             // signal sequenze end
             next();
             return clearInterval(ivid);
         }
-    }, 25);
+    }, 10);
 };
 
 exports.getTest = function (options, data, next) {
 
     next(null, {
-        name: data.name,
-        flow: [
-            [
-                "event1",
-                "method1"
-            ]
-        ]
+        index: 27,
+        name: 'REUDI',
+        duration: 0.003,
+        status: 'Passed',
+        vis_state: 'success',
+        date: '3/3/13'
     });
 };
 

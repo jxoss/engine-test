@@ -1,0 +1,10 @@
+{
+    "roles": {
+        "*": true
+    },
+    "name": "client_api",
+    "module": {
+        "main": "/api/custom.js"
+    },
+    "flow": {} 
+}
