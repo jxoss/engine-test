@@ -3,10 +3,8 @@
         "*": true
     },
     "name": "client_api",
-    "module": {
-        "main": "/api/client.js",
-        "browser": "/api/client.js"
-    },
+    "module": "/api/client.js",
+    "browser": "/api/client.js",
     "flow": {
         "test": {
             "d": [
