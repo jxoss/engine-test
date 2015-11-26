@@ -1,10 +1,9 @@
 {
+    "server": true,
   "roles": {
     "*": true
   },
-  "module": {
-    "main": "/api/api.js"
-  },
+  "module": "/api/api.js",
   "flow": {
     "getTests": {"d": [":getTests"]},
     "getTest": {"d": [":getTest"]}
