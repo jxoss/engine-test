@@ -1,0 +1,44 @@
+{
+  "client": {
+    "config": {
+        "title": "Engine Test detail",
+        "templates": {
+            "def": {
+                "to": ".section",
+                "html": "/test.html"
+            }
+        },
+        "defaultTemplate": "def",
+        "domEvents": [
+            {
+                "on": "click",
+                "selector": "#detailCancel",
+                "flow": "detailCancelBtn"
+            }
+        ]
+    },
+    "flow": [
+        [
+            "show",
+            [":layout/state", {"name": "loader"}],
+            [":ALTR", {"set": {"name": "_path.0"}}],
+            [">flow", {"emit": "@api/getTest"}],
+            [":ALTR", {"data": {"clear": true}}],
+            ":render",
+            [":layout/state", {"name": "content"}]
+        ],
+        [
+            "detailCancelBtn",
+            [":router/route", "/"]
+        ]
+    ],
+    "markup": [
+      "/test.html"
+    ]
+  },
+  "roles": {
+    "*": true
+  },
+  "name": "test",
+  "module": "view"
+}

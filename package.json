@@ -1,9 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
-    "node-inspector": "0.12.2",
-    "view": "adioo/view",
-    "engine-ruut": "jillix/engine-ruut"
+    "view": "adioo/view"
   },
   "name": "engine-test",
   "version": "0.1.0",
@@ -18,24 +16,24 @@
     "url": "https://github.com/jillix/engine-test.git"
   },
   "engine": {
-    "node": ">=0.12"
+    "node": ">=5"
   },
   "bugs": {
     "url": "https://github.com/jillix/engine-test/issues"
   },
   "homepage": "https://github.com/jillix/engine-test",
-  "main": "index.js",
-  "scripts": {
-    "start": "engine .",
-    "debug": "./node_modules/node-inspector/bin/node-debug.js --web-host $IP --web-port 8001 --preload=false ./node_modules/engine/engine ."
-  },
   "license": "MIT",
+    "scripts": {
+        "install": "./node_modules/engine/install .",
+        "start": "node ./node_modules/engine/engine -c ssl/dev.crt -k ssl/dev.key .",
+        "reload": "./node_modules/engine/install .; npm start"
+    },
   "entrypoints": {
     "private": {
-      "*": "router"
+      "*": "layout"
     },
     "public": {
-      "*": "router"
+      "*": "layout"
     }
   }
 }

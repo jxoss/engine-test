@@ -1,0 +1,76 @@
+{
+    "config": {
+        "templates": {
+            "layout": {
+                "to": ".section",
+                "html": "/tests.html",
+                "clear": true,
+                "title": "Engine Tests",
+                "events": [
+                    {
+                        "on": "click",
+                        "selector": "#createTest",
+                        "flow": "createTestBtn"
+                    }
+                ]
+            },
+            "list": {
+                "to": ".section tbody",
+                "html": "/test_item.html",
+                "events": [
+                    {
+                        "on": "click",
+                        "selector": "tbody tr",
+                        "flow": "testItemDetail"
+                    }
+                ]
+            }
+        },
+        "states": {
+            "new": {
+                "sel": "#new",
+                "element": "myElement",
+                "states": ["stateB"],
+                "rm": ["className"],
+                "add": ["className"],
+                "toggle": ["className"]
+            }
+        }
+    },
+    "flow": {
+        "show": [
+            [":layout/state", {
+                "name" :"loader"
+            }],
+            [":render", {
+                "tmpl": "layout"
+            }],
+            [">flow", {"emit": "@api/getTests"}],
+
+            [
+                ":render",
+                {
+                    "template": "my_new_temp_{viewType}"
+                }
+            ],
+
+            [":layout/state", "content"]
+        ],
+        "createTestBtn": [
+            [":router/route", "/new"]
+        ],
+        "testItemDetail": [
+            [":ALTR", {"data": {"url": "/trycken"}}],
+            [":router/route"]
+        ]
+    },
+    "markup": [
+      "/tests.html",
+      "/test_item.html"
+    ],
+  "roles": {
+    "*": true
+  },
+  "name": "tests",
+  "module": "view"
+}
