@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
-    "view": "adioo/view#refactor"
+    "view": "adioo/view"
   },
   "name": "engine-test",
   "version": "0.1.0",
