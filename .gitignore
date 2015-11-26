@@ -1,8 +1,7 @@
-/node_modules
-log.txt
-M.js
-*~
-*.swp
 .DS_Store
-composition/starter_root_jillix_ch.pub.json
+*.swp
+*.swo
+*~
+*.log
+node_modules
 app_modules/*/bundle.js
