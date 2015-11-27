@@ -1,0 +1,16 @@
+{
+    "roles": {
+        "*": true
+    },
+    "name": "test_client",
+    "module": "/test/client.js",
+    "flow": {
+        "run": {
+            "d": [
+                [">*run"]
+            ],
+            "e": "",
+            "r": "" 
+        }
+    } 
+}
