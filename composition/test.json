@@ -5,8 +5,26 @@
     },
     "module": "/test/index.js",
     "flow": {
-        "getTests": {"d": [":getTests"]},
-        "getTest": {"d": [":getTest"]}
+        "test": {
+            "d": [
+                [":data", {"num": 1}],
+                [".data", {"num": 2}],
+                [">>testFlow1"],
+                [">>testFlow2"],
+                [":data", {"num": 3}],
+                [".data", {"num": 4}]
+            ]
+        },
+        "testFlow1": {
+            "d": [
+                [":data", {"num": "f1"}]
+            ]
+        },
+        "testFlow2": {
+            "d": [
+                [":data", {"num": "f2"}]
+            ]
+        }
     },
     "name": "test"
 }

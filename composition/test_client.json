@@ -5,12 +5,16 @@
     "name": "test_client",
     "module": "/test/client.js",
     "flow": {
-        "run": {
+        "test": {
             "d": [
-                [">*run"]
-            ],
-            "e": "",
-            "r": "" 
+                [":data", {"num": 1}],
+                [".data", {"num": 2}],
+                [">>test", {"to": "test", "net": "ws"}],
+                [">>test", {"to": "test", "net": "ws"}],
+                [":data", {"num": 3}],
+                [".data", {"num": 4}],
+                [">>test", {"to": "test", "net": "ws"}]
+            ]
         }
     } 
 }
