@@ -1,3 +1,4 @@
+var stream = require('stream');
 // data handler
 exports.data = function (options, data, next) {
     console.log('Data handler:', options.num);
@@ -5,8 +6,17 @@ exports.data = function (options, data, next) {
 };
 
 // stream handler
-exports.stream = function (stream, options) {
+exports.stream = function (seqStream, options) {
+
     console.log('Stream handler:', options);
-    return stream; 
+    var newStream = stream.Transform({
+        objectMode: true,
+        transform: function (chunk, enc, next) {
+            console.log('Custom transform', options.num);
+            next(null, chunk);
+        }
+    });
+
+    return newStream;
 };
 
