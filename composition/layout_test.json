@@ -6,12 +6,13 @@
                 "html": "/layout_test.html",
                 "clear": true,
                 "title": "Engine Tests",
-                "events": [
-                    {
-                        "on": "click",
-                        "sel": "#runTest",
-                        "flow": "runTest"
-                    }
+                "events": {
+                    "runTest": [
+                        {
+                            "on": "click",
+                            "sel": "#runTest"
+                        }
+                    ]
                 ]
             }
         },
