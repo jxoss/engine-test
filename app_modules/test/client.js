@@ -7,7 +7,7 @@ exports.data = function (options, data, next) {
 };
 
 // stream handler
-exports.stream = function (flow, options, onError) {
+exports.stream = function (chain, options, onError) {
 
     console.log('Stream handler:', options);
     var newStream = stream.Transform({
@@ -19,6 +19,6 @@ exports.stream = function (flow, options, onError) {
     })
     newStream.on('error', onError);
 
-    flow.i.pipe(newStream).pipe(flow.o);
+    chain.i.pipe(newStream).pipe(chain.o);
 };
 
