@@ -13,7 +13,7 @@ exports.stream = function (chain, options, onError) {
     var newStream = stream.Transform({
         objectMode: true,
         transform: function (chunk, enc, next) {
-            console.log('Custom transform', options.num);
+            console.log('Custom transform', options.num, chunk);
             next(null, chunk);
         }
     })
