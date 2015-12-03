@@ -9,7 +9,7 @@
             "d": [
                 [":data", {"num": 1}],
                 [".data", {"num": 2}],
-                [">*@/http", {"url": "/flow/test:test"}],
+                [">*@/ws", {"to": "test", "emit": "test"}],
                 [">*stream", {"num": "2.1"}],
                 [":data", {"num": 3}],
                 [".data", {"num": 4}]
