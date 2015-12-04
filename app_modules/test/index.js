@@ -1,7 +1,9 @@
 // data test handler
 exports.data = function (options, data, next) {
     console.log('Data handler:', options.num);
-    next(null, data);
+    setTimeout(function () {
+        next(null, data);
+    }, 1000);
 };
 
 // stream test handler
