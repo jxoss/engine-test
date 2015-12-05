@@ -3,7 +3,7 @@ exports.data = function (options, data, next) {
     console.log('Data handler:', options.num);
     setTimeout(function () {
         next(null, data);
-    }, 1000);
+    }, 10);
 };
 
 // stream test handler
