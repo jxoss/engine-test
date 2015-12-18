@@ -2,6 +2,7 @@
 exports.data = function (options, data, next) {
     console.log('Data handler:', options.num);
     setTimeout(function () {
+        //next(new Error('Test server error'));
         next(null, data);
     }, 10);
 };

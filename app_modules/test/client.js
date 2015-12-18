@@ -3,6 +3,7 @@ var stream = require('stream');
 // data handler
 exports.data = function (options, data, next) {
     console.log('Data handler:', options.num);
+    //next(new Error('Test error'));
     next(null, JSON.stringify(data));
 };
 
