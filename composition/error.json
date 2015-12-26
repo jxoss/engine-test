@@ -1,0 +1,21 @@
+{
+    "name": "error",
+    "roles": {
+        "*": true
+    },
+    "module": "/error/index.js",
+    "flow": {
+        "server": {
+            "d": [
+                [":server", {"num": 1}],
+                [":server", {"num": 2}]
+            ]
+        },
+        "client": {
+            "d": [
+                [":client", {"num": 1}],
+                [":client", {"num": 2}]
+            ]
+        }
+    }
+}

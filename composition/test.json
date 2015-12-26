@@ -13,7 +13,8 @@
                 [">>testFlow2"],
                 [":data", {"num": 3}],
                 [".data", {"num": 4}]
-            ]
+            ],
+            "r": ["server", {"to": "error"}]
         },
         "testFlow1": {
             "d": [
