@@ -1,0 +1,45 @@
+{
+    "name": "fd_layout",
+    "module": "view",
+    "roles": {
+        "*": true
+    },
+    "markup": ["/fd_layout.html"],
+    "styles": [
+        "/fd_layout.css"
+    ],
+    "config": {
+        "title": "Flow detail",
+        "templates": {
+            "layout": {
+                "to": ".section",
+                "html": "/fd_layout.html"
+            }
+        },
+        "events": {
+            "name": [
+                {
+                    "on": "click",
+                    "sel": "#cssSel"
+                }
+            ]
+        },
+        "states": {
+            "content": [
+                {
+                    "sel": ".loader",
+                    "template": "layout",
+                    "add": ["hide"]
+                },
+                {
+                    "sel": ".section",
+                    "template": "layout",
+                    "rm": ["hide"]
+                }
+            ]
+        }
+    },
+    "flow": {
+        
+    }
+}

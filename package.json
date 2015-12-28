@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
+    "materialize-css": "^0.97.5",
     "view": "adioo/view"
   },
   "name": "engine-test",
@@ -23,11 +24,11 @@
   },
   "homepage": "https://github.com/jillix/engine-test",
   "license": "MIT",
-    "scripts": {
-        "install": "./node_modules/engine/install .",
-        "start": "node ./node_modules/engine/engine -c ssl/dev.crt -k ssl/dev.key .",
-        "reload": "./node_modules/engine/install .; npm start"
-    },
+  "scripts": {
+    "install": "./node_modules/engine/install .",
+    "start": "node ./node_modules/engine/engine -c ssl/dev.crt -k ssl/dev.key .",
+    "reload": "./node_modules/engine/install .; npm start"
+  },
   "entrypoints": {
     "private": {
       "*": "layout"

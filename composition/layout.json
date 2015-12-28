@@ -3,16 +3,21 @@
         "ready": {
             "d": [
                 [":render", {"tmpl": "layout"}],
-                [":layout_test/render", {"tmpl": "layout"}],
+                [":fd_layout/render", {"tmpl": "layout"}],
                 [">>reset", {"to": "layout_test"}], 
                 [".state", {"name": "content", "tmpl": "layout"}]
-            ],
-            "r": "errEvent"
+            ]
         },
-        "errEvent": {
+        "showFlowDetail": {
             "d": [
-                [":render", {"tmpl": "layout"}],
-                [":state", {"name": "error", "tmpl": "layout"}]
+                [":fd_layout/render", {"tmpl": "layout"}],
+                [":state", {"name": "content", "tmpl": "layout"}]
+            ]
+        },
+        "showTests": {
+            "d": [
+                [":layout_test/render", {"tmpl": "layout"}],
+                [":state", {"name": "content", "tmpl": "layout"}]
             ]
         }
     },
@@ -21,18 +26,27 @@
         "templates": {
             "layout": {
                 "to": "body",
-                "html": "/layout.html"
+                "html": "/layout.html",
+                "events": {
+                    "showFlowDetail": [
+                        {
+                            "on": "click",
+                            "sel": "#showFlowDetail"
+                        }
+                    ],
+                    "showTests": [
+                        {
+                            "on": "click",
+                            "sel": "#showTests"
+                        }
+                    ]
+                }
             }
         },
         "states": {
             "content": [
                 {
                     "sel": ".loader",
-                    "template": "layout",
-                    "add": ["hide"]
-                },
-                {
-                    "sel": ".error",
                     "template": "layout",
                     "add": ["hide"]
                 },
@@ -49,29 +63,7 @@
                     "add": ["hide"]
                 },
                 {
-                    "sel": ".error",
-                    "template": "layout",
-                    "add": ["hide"]
-                },
-                {
                     "sel": ".loader",
-                    "template": "layout",
-                    "rm": ["hide"]
-                }
-            ],
-            "error": [
-                {
-                    "sel": ".loader",
-                    "template": "layout",
-                    "add": ["hide"]
-                },
-                {
-                    "sel": ".section",
-                    "template": "layout",
-                    "add": ["hide"]
-                },
-                {
-                    "sel": ".error",
                     "template": "layout",
                     "rm": ["hide"]
                 }
@@ -82,9 +74,8 @@
       "/layout.html"
     ],
     "styles": [
-      "/bootstrap/css/bootstrap.min.css",
-      "/bootstrap/css/bootstrap-theme.min.css",
-      "/style.css"
+        "https://fonts.googleapis.com/icon?family=Material+Icons",
+        "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"
     ],
     "roles": {
         "*": true
