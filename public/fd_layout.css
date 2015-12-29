@@ -1,8 +1,24 @@
 .margin-1 {
-    margin: 0 0.5rem 0.5rem 0;
+    margin: 0.25rem;
 }
 .padding-2 {
-    padding: 0 0 0.5rem 0.5rem;
+    margin: 0 0 0.5rem 0.5rem;
+}
+
+.air-left {
+    margin-left: 1rem;
+}
+
+.air-top {
+    margin-top: 1rem;
+}
+
+.air-bottom {
+    margin-bottom: 1rem;
+}
+
+.box {
+    border-radius: 0.5rem;
 }
 
 .h4 {
@@ -15,9 +31,56 @@
 
 .addition {
     font-style: italic;
+    color: #888;
 }
 
 .flex-center {
     display: flex;
-    justify-content: center; 
+    justify-content: space-around; 
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.flex-vert {
+    display: flex;
+    align-items: center;
+}
+
+.flex-left, .flex-top {
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.flex-right, .flex-bottom{
+    display: flex;
+    justify-content: flex-end; 
+}
+
+/** Flow components **/
+.flow-dh {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flow-dh > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.flow-dh > div > h5 {
+    margin-left: 1rem;
+}
+
+.flow-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    color: #fff; 
+    cursor: pointer;
 }
