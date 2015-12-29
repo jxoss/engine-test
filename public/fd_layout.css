@@ -9,6 +9,10 @@
     margin-left: 1rem;
 }
 
+.air-right {
+    margin-right: 1rem;
+}
+
 .air-top {
     margin-top: 1rem;
 }
@@ -60,18 +64,63 @@
 }
 
 /** Flow components **/
+.flow-dh-view {
+    position: relative;
+}
+
+.flow-handler-line {
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    width: 0.5rem;
+    z-index: -1;
+    border-radius: 1rem;
+    left: 1.85rem;
+}    
 .flow-dh {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer; 
 }
 .flow-dh > div {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 2; 
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.flow-footer {
+    display: flex;
     align-items: center;
 }
-.flow-dh > div > div {
-    margin-left: 1rem;
+
+.flow-footer > div {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border-radius: 0.25rem;
+}
+
+.flow-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4rem;
+    padding: 0.5rem;
+}
+.flow-icon > i {
+    font-size: 3rem;
+    color: #fff;
+    margin-left: 0.1rem;
+}
+
+.flow-icon-rotate {
+    transform:rotate(90deg);
 }
 
 .flow-btn {
