@@ -3,9 +3,7 @@
         "ready": {
             "d": [
                 [":render", {"tmpl": "layout"}],
-                [":fd_layout/render", {"tmpl": "layout"}],
-                [">>reset", {"to": "layout_test"}], 
-                [".state", {"name": "content", "tmpl": "layout"}]
+                ">>showFlowDetail"
             ]
         },
         "showFlowDetail": {

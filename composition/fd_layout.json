@@ -13,33 +13,94 @@
         "templates": {
             "layout": {
                 "to": ".section",
-                "html": "/fd_layout.html"
+                "html": "/fd_layout.html",
+                "events": {
+                    "showDataStream": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-show-ds"
+                        }
+                    ],
+                    "showEndEmit": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-show-ee"
+                        }
+                    ],
+                    "showErrorEmit": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-show-re"
+                        }
+                    ],
+                    "showInstConfig": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-show-ic"
+                        }
+                    ],
+                    "addFlowHandler": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-addFH"
+                        }
+                    ],
+                    "save": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-save"
+                        }
+                    ],
+                    "close": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-btn-close"
+                        }
+                    ]
+                }
             }
         },
-        "events": {
-            "name": [
-                {
-                    "on": "click",
-                    "sel": "#cssSel"
-                }
-            ]
-        },
         "states": {
-            "content": [
+            "show_add_fh_btn": [
                 {
-                    "sel": ".loader",
-                    "template": "layout",
-                    "add": ["hide"]
-                },
-                {
-                    "sel": ".section",
+                    "sel": ".flow-btn-addFH",
                     "template": "layout",
                     "rm": ["hide"]
+                }
+            ],
+            "hide_add_fh_btn": [
+                {
+                    "sel": ".flow-btn-addFH",
+                    "template": "layout",
+                    "add": ["hide"]
                 }
             ]
         }
     },
     "flow": {
-        
+        "showDataStream": {
+            "d": [
+                ":fd_ds_layout/render",
+                [":state", {"name": "show_add_fh_btn"}]
+            ]
+        },
+        "showEndEmit": {
+            "d": [
+                [":state", {"name": "hide_add_fh_btn"}],
+                ":fd_ee_layout/render"
+            ]
+        },
+        "showErrorEmit": {
+            "d": [
+                [":state", {"name": "hide_add_fh_btn"}],
+                ":fd_re_layout/render"
+            ]
+        },
+        "showInstConfig": {
+            "d": [
+                [":state", {"name": "hide_add_fh_btn"}],
+                ":fd_ic_layout/render"
+            ]
+        }
     }
 }
