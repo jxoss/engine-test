@@ -1,0 +1,16 @@
+{
+    "name": "fd_ds_list",
+    "module": "view",
+    "roles": {
+        "*": true
+    },
+    "markup": ["/fd_ds_item.html"],
+    "config": {
+        "templates": {
+            "layout": {
+                "to": ".flow-ds-list",
+                "html": "/fd_ds_item.html"
+            }
+        }
+    }
+}

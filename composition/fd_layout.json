@@ -81,6 +81,7 @@
         "showDataStream": {
             "d": [
                 ":fd_ds_layout/render",
+                ":fd_ds_list/render",
                 [":state", {"name": "show_add_fh_btn"}]
             ]
         },
