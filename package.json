@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
+    "flow-api": "jillix/flow-api",
     "materialize-css": "^0.97.5",
     "view": "adioo/view"
   },
