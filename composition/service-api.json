@@ -1,0 +1,16 @@
+{
+    "name": "service-api",
+    "module": "flow-service-api",
+    "roles": {
+        "*": true
+    },
+    "flow": {
+        "instance.get": {
+            "d": [
+                [":access", {}],
+                [":context", {}],
+                ":instance.get"
+            ]
+        }
+    }
+}
