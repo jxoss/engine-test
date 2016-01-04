@@ -1,6 +1,6 @@
 {
     "name": "flow-api",
-    "module": "flow-api",
+    "module": "flow-flow-api",
     "roles": {
         "*": true
     },
@@ -8,7 +8,7 @@
         "instance.get": {
             "d": [
                 [":service-api/access", {}],
-                [":context", {"app": "appId", "comp": "compName"}],
+                [":context", {}],
                 ":instance.get"
             ]
         }
