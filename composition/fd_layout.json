@@ -82,9 +82,10 @@
             "d": [
                 ":fd_ds_layout/render",
                 [":state", {"name": "show_add_fh_btn"}],
-                [">>dummy_api/getDatFlow"],
+                [">>instance.get", {"to": "flow-api", "net": "ws"}],
                 ":fd_ds_list/render"
-            ]
+            ],
+            "r": ["client", {"to": "error"}]
         },
         "showEndEmit": {
             "d": [
