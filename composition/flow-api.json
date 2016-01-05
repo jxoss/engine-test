@@ -5,7 +5,7 @@
         "*": true
     },
     "flow": {
-        "instance.get": {
+        "config.get": {
             "d": [
                 [":service-api/access", {
                     "key": "fish",
@@ -13,7 +13,7 @@
                     "id": "appid"
                 }],
                 [":context", {}],
-                ":instance.get"
+                ":config.get"
             ]
         }
     }
