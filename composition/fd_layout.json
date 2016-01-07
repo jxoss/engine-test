@@ -82,8 +82,8 @@
             "d": [
                 ":fd_ds_layout/render",
                 [":state", {"name": "show_add_fh_btn"}],
-                [">>instance.get", {"to": "flow-api", "net": "ws"}],
-                ":fd_ds_list/render"
+                [">>getInstanceListenerDataFlow", {"to": "flow-api", "net": "ws"}],
+                [":fd_ds_list/render", {"clearList": false}]
             ],
             "r": ["client", {"to": "error"}]
         },

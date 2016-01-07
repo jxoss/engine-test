@@ -5,7 +5,7 @@
         "*": true
     },
     "flow": {
-        "config.get": {
+        "getInstanceListenerDataFlow": {
             "d": [
                 [":service-api/access", {
                     "key": "fish",
@@ -13,7 +13,7 @@
                     "id": "appid"
                 }],
                 [":context", {}],
-                ":config.get"
+                ":getInstanceListenerDataFlow"
             ]
         }
     }
