@@ -1,48 +1,11 @@
 <div class="flow-dh">
-    <a class="flow-icon z-depth-1 {type}">
-        <i class="material-icons">{icon}</i>
+    <a class="flow-icon z-depth-1 {icon_bg}">
+        <i class="material-icons {rotate}">{icon}</i>
     </a>
-    <div class="z-depth-1 hoverable flow-text {type}">
+    <div class="z-depth-1 hoverable flow-text {item_bg}">
         <span>{instance}/{method}</span>
         <a class="btn-floating waves-effect waves-light red accent-2">
             <i class="material-icons">edit</i>
         </a>
     </div>
 </div>
-<!-- 
-Data handler: {
-    icon_name: adjust,
-    icon_color: amber accent-2
-    bg_color: amber lighten-4
-}
-
-Once data handler: {
-    icon_name: filter_tilt_shift
-    icon_color: amber accent-2
-    bg_color: amber lighten-4
-}
-
-Flow emit: {
-    icon_name: chevron_right,
-    icon_color: blue accent-2
-    bg_color: blue lighten-4
-}
-
-Flow emit (leaking): {
-    icon_name: keyboard_capslock,
-    icon_color: blue accent-2
-    bg_color: blue lighten-4
-}
-    
-Stream handler: {
-    icon_name: chevron_right,
-    icon_color: grey accent-2
-    bg_color: grey lighten-4
-}
-
-Stream handler (leaking): {
-    icon_name: keyboard_capslock,
-    icon_color: grey accent-2
-    bg_color: grey lighten-4
-}
--->
