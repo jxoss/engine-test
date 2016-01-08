@@ -83,6 +83,39 @@
                 ":fd_ds_layout/render",
                 [":state", {"name": "show_add_fh_btn"}],
                 [">>getInstanceListenerDataFlow", {"to": "flow-api", "net": "ws"}],
+                [":flow-tools/translate", {
+                    "translate": {
+                        "type": {
+                            ":": {
+                                "icon": "adjust",
+                                "icon_bg": "amber accent-2",
+                                "item_bg": "amber lighten-4"
+                            },
+                            ".": {
+                                "icon": "filter_tilt_shift",
+                                "icon_bg": "amber accent-2",
+                                "item_bg": "amber lighten-4"
+                            },
+                            ">": {
+                                "icon_bg": "blue accent-2",
+                                "item_bg": "blue lighten-4"
+                            },
+                            "*": {
+                                "icon_bg": "grey accent-2",
+                                "item_bg": "grey lighten-4"
+                            }
+                        },
+                        "joint": {
+                            ">": {
+                                "icon": "chevron_right"
+                            },
+                            "|": {
+                                "icon": "keyboard_capslock",
+                                "rotate": "flow-icon-rotate"
+                            }
+                        }
+                    }
+                }],    
                 [":fd_ds_list/render", {"clearList": false}]
             ],
             "r": ["client", {"to": "error"}]
