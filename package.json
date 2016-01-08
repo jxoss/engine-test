@@ -3,6 +3,7 @@
     "engine": "jillix/engine",
     "flow-service-api": "jillix/flow-service-api",
     "flow-flow-api": "jillix/flow-flow-api",
+    "flow-tools": "jillix/flow-tools",
     "materialize-css": "^0.97.5",
     "view": "adioo/view"
   },
