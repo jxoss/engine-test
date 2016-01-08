@@ -68,6 +68,13 @@
                     "rm": ["hide"]
                 }
             ],
+            "hide_ds_detail": [
+                {
+                    "sel": ".flow-ds-detail",
+                    "template": "layout",
+                    "add": ["hide"]
+                }
+            ],
             "hide_add_fh_btn": [
                 {
                     "sel": ".flow-btn-addFH",
@@ -82,6 +89,7 @@
             "d": [
                 ":fd_ds_layout/render",
                 [":state", {"name": "show_add_fh_btn"}],
+                [":state", {"name": "hide_ds_detail"}],
                 [">>getInstanceListenerDataFlow", {"to": "flow-api", "net": "ws"}],
                 [":flow-tools/translate", {
                     "translate": {
