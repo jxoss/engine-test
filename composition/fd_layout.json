@@ -68,11 +68,28 @@
                     "rm": ["hide"]
                 }
             ],
-            "hide_ds_detail": [
+            "show_ds_list": [
                 {
                     "sel": ".flow-ds-detail",
                     "template": "layout",
                     "add": ["hide"]
+                },
+                {
+                    "sel": ".flow-ds-list",
+                    "template": "layout",
+                    "rm": ["hide"]
+                }
+            ],
+            "show_ds_detail": [
+                {
+                    "sel": ".flow-ds-list",
+                    "template": "layout",
+                    "add": ["hide"]
+                },
+                {
+                    "sel": ".flow-ds-detail",
+                    "template": "layout",
+                    "rm": ["hide"]
                 }
             ],
             "hide_add_fh_btn": [
@@ -89,7 +106,7 @@
             "d": [
                 ":fd_ds_layout/render",
                 [":state", {"name": "show_add_fh_btn"}],
-                [":state", {"name": "hide_ds_detail"}],
+                [":state", {"name": "show_ds_list"}],
                 [">>getInstanceListenerDataFlow", {"to": "flow-api", "net": "ws"}],
                 [":flow-tools/translate", {
                     "translate": {
