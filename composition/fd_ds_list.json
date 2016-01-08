@@ -9,8 +9,23 @@
         "templates": {
             "layout": {
                 "to": ".flow-ds-list",
-                "html": "/fd_ds_item.html"
+                "html": "/fd_ds_item.html",
+                "events": {
+                    "showDetail": [
+                        {
+                            "on": "click",
+                            "sel": ".flow-dh"
+                        }
+                    ]
+                }
             }
+        }
+    },
+    "flow": {
+        "showDetail": {
+            "d": [
+                [":fd_layout/state", {"name": "show_ds_detail"}]
+            ]
         }
     }
 }
