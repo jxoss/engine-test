@@ -1,0 +1,31 @@
+<!--icon<br>
+next handler cube up fx<br>
+select type (data, 1data, flow, lflow, custom, lcustom)<br>
+select from existing instances<br>
+select or write method or event<br>
+(..read method from where?)<br>-->
+
+<div class="card-panel {item_bg}">
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="{data.instance}" id="fd_ds_detail_instance" type="text" class="validate">
+                    <label for="fd_ds_detail_instance">Instance</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="{data.method}" id="fd_ds_detail_method" type="text" class="validate">
+                    <label for="fd_ds_detail_method">Method/Event</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="fd_ds_detail_options" class="materialize-textarea">{data.options}</textarea>
+                    <label for="fd_ds_detail_options">Options</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
