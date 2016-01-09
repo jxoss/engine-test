@@ -24,7 +24,7 @@
     "flow": {
         "showDetail": {
             "d": [
-                [":fd_layout/state", {"name": "show_ds_detail"}]
+                [">>showDetail", {"to": "fd_ds_layout"}]
             ]
         }
     }
