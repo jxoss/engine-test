@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "engine": "jillix/engine",
-    "flow-service-api": "jillix/flow-service-api#access-and-context",
+    "flow-service-api": "jillix/flow-service-api",
     "flow-flow-api": "jillix/flow-flow-api#edit-flow-detail",
     "flow-tools": "jillix/flow-tools",
     "materialize-css": "^0.97.5",
