@@ -90,12 +90,9 @@
             ]
         }
     },
-    "markup": [
-      "/layout_test.html"
-    ],
-  "roles": {
-    "*": true
-  },
-  "name": "layout_test",
-  "module": "view"
+    "roles": {
+        "*": true
+    },
+    "name": "layout_test",
+    "module": "view"
 }

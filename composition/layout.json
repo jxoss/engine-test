@@ -24,6 +24,10 @@
         "templates": {
             "layout": {
                 "to": "body",
+                "css": [
+                    "https://fonts.googleapis.com/icon?family=Material+Icons",
+                    "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"
+                ],
                 "html": "/layout.html",
                 "events": {
                     "showFlowDetail": [
@@ -68,13 +72,6 @@
             ]
         }
     },
-    "markup": [
-      "/layout.html"
-    ],
-    "styles": [
-        "https://fonts.googleapis.com/icon?family=Material+Icons",
-        "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"
-    ],
     "roles": {
         "*": true
     },

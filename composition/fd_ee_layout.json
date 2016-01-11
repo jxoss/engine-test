@@ -4,7 +4,6 @@
     "roles": {
         "*": true
     },
-    "markup": ["/fd_ee_layout.html"],
     "config": {
         "templates": {
             "layout": {

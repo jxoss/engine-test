@@ -4,15 +4,14 @@
     "roles": {
         "*": true
     },
-    "markup": ["/fd_layout.html"],
-    "styles": [
-        "/fd_layout.css"
-    ],
     "config": {
         "title": "Flow detail",
         "templates": {
             "layout": {
                 "to": ".section",
+                "css": [
+                    "/fd_layout.css"
+                ],
                 "html": "/fd_layout.html",
                 "events": {
                     "showDataStream": [
